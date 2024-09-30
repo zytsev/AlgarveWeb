@@ -1,0 +1,21 @@
+.container {
+  background-color: #ffffff;
+  padding: 2rem 1.5rem;
+  border-radius: 2rem;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.imgShevron {
+  width: 1.5rem;
+}
+
+.question {
+  font-size: calc(1.525rem + (2.5 - 1.525) * ((100vw - 62rem) / (87 - 62)));
+  font-weight: calc(
+    1.4 * (1.525rem + (2.5 - 1.525) * ((100vw - 62rem) / (87 - 62)))
+  );
+}
