@@ -14,7 +14,7 @@
 }
 
 .question {
-  font-size: calc(1.525rem + (2.5 - 1.525) * ((100vw - 62rem) / (87 - 62)));
+  font-size: clamp(1.56rem, 1.2914rem + 1.3429vw, 2.5rem);
   font-weight: calc(
     1.4 * (1.525rem + (2.5 - 1.525) * ((100vw - 62rem) / (87 - 62)))
   );

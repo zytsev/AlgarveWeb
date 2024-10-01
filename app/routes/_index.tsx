@@ -5,8 +5,10 @@ import {
   resultsItems,
   teamItems,
   questionsItems,
+  contactsItems,
 } from "../accets/data";
 import Drop from "../components/dropdown/drop";
+import RequestForm from "../components/requestForm/requestForm";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,7 +20,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="container">
-      <section className="mainSection">
+      <section className="mainSection" id="main">
         <header className="header">
           <div className="headerLeftBlock">
             <img
@@ -32,7 +34,7 @@ export default function Index() {
             <ul className="navul">
               {navItems.map((item, i) => (
                 <li className="navli" key={i}>
-                  {item}
+                  <a href={item.id}>{item.link}</a>
                 </li>
               ))}
             </ul>
@@ -94,6 +96,41 @@ export default function Index() {
         {questionsItems.map((item, i) => (
           <Drop key={i} {...item} />
         ))}
+      </section>
+      <section className="sectionRunline">
+        <h2>
+          Design responsivo * Fácil de usar * Design exclusivo * Pedidos
+          instantâneos * Suporte ao cliente 24/7 * Otimização SEO
+        </h2>
+      </section>
+      <section className="sectionImage">
+        <img src="../../public/photo.jpeg" alt="computer"></img>
+      </section>
+      <section className="writeUs">
+        <h2 className="writeUsTitle">Entre em contato conosco</h2>
+        <RequestForm />
+      </section>
+      <section className="contacts" id="contact">
+        <h2 className="contactsTitle">Contato</h2>
+        <div className="contactsBlock">
+          {contactsItems.map((item, i) => (
+            <div key={i} className="contactsElem">
+              <p className="contactsElemTitle">{item.title}</p>
+              <p className="contactsElemText">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="footerSection">
+        <footer className="footer">
+          <div className="footerCopyrite">
+            © 2024 Todos os direitos reservados.
+          </div>
+          <div className="footerLinks">
+            <span>Política</span>
+            <span>Sobre nós</span>
+          </div>
+        </footer>
       </section>
     </div>
   );

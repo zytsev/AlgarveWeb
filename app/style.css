@@ -19,12 +19,17 @@
   --bgd-initSection: #260a30;
   --bgd-rose: #fff5e8;
   --clr-border: #40b0bf;
+  --h1-fontsize: clamp(2.5rem, 1.7857rem + 3.5714vw, 5rem);
+  --h2-fontsize: clamp(2rem, 1.4286rem + 2.8571vw, 4rem);
+  --primaryText-fontsize: clamp(1.125rem, 1.0464rem + 0.3929vw, 1.4rem);
+  --subtitle-fontsize: clamp(1.56rem, 1.2914rem + 1.3429vw, 2.5rem);
 }
 
 * {
   box-sizing: border-box;
   font-family: "Golos Text";
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -33,7 +38,13 @@ body {
 }
 
 h1 {
+  font-size: var(--h1-fontsize);
   color: brown;
+}
+
+h2 {
+  font-size: var(--h2-fontsize);
+  text-align: center;
 }
 
 img {
@@ -53,8 +64,14 @@ ol {
 
 .container {
   max-width: 1440px;
-  width: 90vw;
+  width: 95%;
   margin: 0 auto;
+}
+
+.blueBorder {
+  outline: 4px solid var(--clr-border);
+  border-radius: 0.5rem;
+  transition: 0.5s;
 }
 
 .teamImg,
@@ -67,8 +84,6 @@ ol {
 .questions {
   width: 100%;
   background-color: var(--bgd-rose);
-  border: 4px solid var(--clr-border);
-  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,10 +92,6 @@ ol {
 }
 
 .questionsTitle {
-  font-size: calc(2.05rem + (4 - 2.05) * ((100vw - 62rem) / (87 - 62)));
-  line-height: calc(
-    1.3 * (2.05rem + (4 - 2.05) * ((100vw - 62rem) / (87 - 62)))
-  );
   margin-bottom: 1rem;
 }
 
@@ -97,7 +108,7 @@ ol {
   cursor: pointer;
 }
 .answers {
-  font-size: calc(1.14rem + (1.4 - 1.14) * ((100vw - 62rem) / (87 - 62)));
+  font-size: var(--primaryText-fontsize);
   line-height: calc(
     1.4 * (1.14rem + (1.4 - 1.14) * ((100vw - 62rem) / (87 - 62)))
   );
@@ -108,4 +119,38 @@ ol {
 }
 .questionsBtn.active ~ .answers {
   line-height: 1.2;
+}
+
+.sectionImage {
+  overflow: hidden;
+}
+
+.sectionImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+.sectionRunline {
+  height: clamp(7.5rem, 3.818rem + 18.41vw, 17.625rem);
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.sectionRunline h2 {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 20s infinite linear;
 }

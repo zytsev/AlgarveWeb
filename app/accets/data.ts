@@ -1,4 +1,8 @@
-export const navItems = ["Primeira", "Serviços", "Contato"];
+export const navItems = [
+  { link: "Primeira", id: "#main" },
+  { link: "Serviços", id: "#service" },
+  { link: "Contato", id: "#contact" },
+];
 export const resultsItems = [
   { title: "20+", text: "Projetos de sucesso" },
   { title: "30+", text: "Clientes felizes" },
@@ -54,5 +58,24 @@ export const questionsItems = [
   {
     question: "Qual o orçamento necessário para o site?",
     answer: "Comece a partir de 200 euros para um site estático de uma página.",
+  },
+];
+
+export const contactsItems = [
+  {
+    title: "Telefone",
+    text: "+351-920-586-457",
+  },
+  {
+    title: "Email",
+    text: "zaytsev.e@gmail.com",
+  },
+  {
+    title: "Morada",
+    text: "Rua Dr. João de Meneses, 16 C, Silves, Faro, 8300-153",
+  },
+  {
+    title: "Horário",
+    text: "9.00 - 18.00, exceto finais de semana e feriados",
   },
 ];
