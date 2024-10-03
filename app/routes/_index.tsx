@@ -1,6 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
 import {
-  rewiewsItems,
   navItems,
   resultsItems,
   teamItems,
@@ -67,18 +66,6 @@ export default function Index() {
               <img className="teamImg" src={item.imgSrc} alt="foto"></img>
               <h4 className="teamName">{item.name}</h4>
               <p className="teamJob">{item.job}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-      <section className="rewiews">
-        <h2 className="rewiewsTitle">Comentários de clientes</h2>
-        <div className="rewiewsContainer">
-          {rewiewsItems.map((item, i) => (
-            <div key={i} className="rewiewsBlock">
-              <img className="rewiewsImg" src={item.imgSrc} alt="foto"></img>
-              <h4 className="rewiewsName">{item.name}</h4>
-              <p className="rewiewsText">{item.text}</p>
             </div>
           ))}
         </div>
