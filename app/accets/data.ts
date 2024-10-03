@@ -4,14 +4,18 @@ export const navItems = [
   { link: "Contato", id: "#contact" },
 ];
 export const resultsItems = [
-  { title: "20+", text: "Projetos de sucesso" },
-  { title: "30+", text: "Clientes felizes" },
-  { title: "24/7", text: "Suporte ao cliente" },
+  { id: "res1", title: "20+", text: "Projetos de sucesso" },
+  { id: "res2", title: "30+", text: "Clientes felizes" },
+  { id: "res3", title: "24/7", text: "Suporte ao cliente" },
 ];
 export const teamItems = [
-  { name: "Evgueny", job: "Programador", imgSrc: "../../public/logo.jpeg" },
-  { name: "Tatiana", job: "Administrador", imgSrc: "../../public/logo.jpeg" },
-  { name: "Alex", job: "Designer ", imgSrc: "../../public/logo.jpeg" },
+  { name: "Evgueny", job: "Programador", imgSrc: "../../public/evgeny.jpg" },
+  {
+    name: "Tatiana",
+    job: "Administrador",
+    imgSrc: "../../public/tatiana.jpg",
+  },
+  { name: "Alex", job: "Designer ", imgSrc: "../../public/alex.jpg" },
 ];
 export const rewiewsItems = [
   {

@@ -20,40 +20,40 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="container">
-      <section className="mainSection" id="main">
-        <header className="header">
-          <div className="headerLeftBlock">
-            <img
-              src="../../public/logo-removeBG.png"
-              alt="logo"
-              className="headerImg"
-            ></img>
-            <h3>Loja de sites</h3>
-          </div>
-          <nav className="nav">
-            <ul className="navul">
-              {navItems.map((item, i) => (
-                <li className="navli" key={i}>
-                  <a href={item.id}>{item.link}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+      <header className="header">
+        <div className="headerLeftBlock">
+          <img src="../../public/logo-removeBG.png" alt="logo"></img>
+          <h3>Loja de sites</h3>
+        </div>
+        <nav className="nav">
+          <ul className="navul">
+            {navItems.map((item, i) => (
+              <li className="navli" key={i}>
+                <a href={item.id}>{item.link}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <a href="#writeUs">
           <button className="headerBtn" type="button">
             Encomendar site
           </button>
-        </header>
+        </a>
+      </header>
+      <section className="mainSection" id="main">
         <h1 className="title">Desenvolvimento web</h1>
         <p className="titleText">
           Crie sua loja online, café ou escritório conosco!
         </p>
-        <button className="titleBtn" type="button">
-          Comece agora
-        </button>
+        <a href="#writeUs">
+          <button className="titleBtn" type="button">
+            Comece agora
+          </button>
+        </a>
       </section>
       <section className="results">
         {resultsItems.map((item, i) => (
-          <div key={i} className="resultsBlock">
+          <div key={i} id={item.id} className="resultsBlock">
             <p className="resultsBlockTitle">{item.title}</p>
             <h3 className="resultsBlockText">{item.text}</h3>
           </div>
@@ -63,7 +63,7 @@ export default function Index() {
         <h2 className="teamTitle">Nossa equipe</h2>
         <div className="teamContainer">
           {teamItems.map((item, i) => (
-            <div key={i} className="teamBlock">
+            <div key={i} id={item.name} className="teamBlock">
               <img className="teamImg" src={item.imgSrc} alt="foto"></img>
               <h4 className="teamName">{item.name}</h4>
               <p className="teamJob">{item.job}</p>
@@ -72,7 +72,7 @@ export default function Index() {
         </div>
       </section>
       <section className="rewiews">
-        <h2 className="rewiewsTitle">Nossa equipe</h2>
+        <h2 className="rewiewsTitle">Comentários de clientes</h2>
         <div className="rewiewsContainer">
           {rewiewsItems.map((item, i) => (
             <div key={i} className="rewiewsBlock">
@@ -106,7 +106,7 @@ export default function Index() {
       <section className="sectionImage">
         <img src="../../public/photo.jpeg" alt="computer"></img>
       </section>
-      <section className="writeUs">
+      <section className="writeUs" id="writeUs">
         <h2 className="writeUsTitle">Entre em contato conosco</h2>
         <RequestForm />
       </section>
