@@ -20,6 +20,7 @@
   --bgd-rose: #fff5e8;
   --clr-border: #40b0bf;
   --bgd-buttonPrimary: #29bf12;
+  --bgd-accent: #ff9914;
   --h1-fontsize: clamp(2.125rem, 1.304rem + 4.11vw, 5rem);
   --h2-fontsize: clamp(2rem, 1.4286rem + 2.8571vw, 4rem);
   --primaryText-fontsize: clamp(1.125rem, 1.0464rem + 0.3929vw, 1.4rem);
@@ -125,8 +126,8 @@ button {
 
   .headerLeftBlock {
     img {
-      width: 3.3rem;
-      height: 7rem;
+      width: 3rem;
+      height: 3rem;
       object-fit: cover;
     }
     h3 {
@@ -186,15 +187,6 @@ button {
       text-align: center;
     }
   }
-  /* #res1 {
-    grid-column: 1 / span 1;
-  }
-  #res2 {
-    grid-column: 2 / span 1;
-  }
-  #res3 {
-    grid-column: 3 / span 1;
-  } */
 }
 
 @media (width < 768px) {
@@ -242,21 +234,23 @@ button {
   }
 }
 
-.rewiews {
-  background-color: #fff;
+.transparant {
+  background-color: var(--bgd-accent);
   padding: clamp(1rem, 0.429rem + 2.86vw, 3rem) 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .transparantText {
+    font-size: var(--primaryText-fontsize);
+    text-align: center;
+    padding: 0.5rem 0;
+  }
 }
 
 .blueBorder {
-  outline: 4px solid var(--clr-border);
+  outline: 3px solid var(--clr-border);
   border-radius: 0.5rem;
-  transition: 0.5s;
-}
-
-.rewiewsImg {
-  height: 200px;
-  width: 100%;
-  object-fit: contain;
 }
 
 .questions {
@@ -266,25 +260,25 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 5rem 0;
+  padding: clamp(1rem, 0.429rem + 2.86vw, 3rem) 0;
+  .questionsTitle {
+    margin-bottom: 1rem;
+  }
+  .questionsBtn {
+    width: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    color: #000000;
+  }
 }
 
-.questionsTitle {
-  margin-bottom: 1rem;
-}
-
-.questionsBtn {
-  width: 100%;
-  padding: 0;
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-}
 .answers {
   font-size: var(--primaryText-fontsize);
   line-height: calc(
@@ -293,10 +287,11 @@ button {
   margin-block-start: 0.5lh;
   overflow: hidden;
   line-height: 0;
-  transition: line-height 0.5s;
+  transition: 0.5s;
 }
 .questionsBtn.active ~ .answers {
   line-height: 1.2;
+  padding-bottom: 1rem;
 }
 
 .sectionImage {
@@ -307,6 +302,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 @keyframes scroll {
@@ -331,4 +327,107 @@ button {
   display: inline-block;
   padding-left: 100%;
   animation: scroll 20s infinite linear;
+}
+
+.writeUs,
+.contacts {
+  background-color: var(--bgd-rose);
+  padding: clamp(1rem, 0.429rem + 2.86vw, 3rem) 0;
+}
+.writeUsForm,
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.writeUsInput {
+  border-radius: 40px;
+  min-height: 3rem;
+  font-size: var(--primaryText-fontsize);
+  padding: 1rem;
+  transition: border-color 0.25s ease 0s;
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.07) 0px 1px 3px 0px, rgba(0, 0, 0, 0.03) 0px 0px 0px 1px;
+  outline-color: transparent;
+}
+
+.writeUsInput:hover,
+.writeUsInput:focus {
+  border-color: var(--bgd-buttonPrimary);
+}
+
+.writeUsinputsBlock {
+  display: flex;
+  width: 85%;
+  gap: 1rem;
+  .writeUsInputName,
+  .writeUsInputPhone,
+  .writeUsInputEmail {
+    width: 100%;
+  }
+}
+@media (width<768px) {
+  .writeUsinputsBlock {
+    flex-wrap: wrap;
+  }
+}
+.writeUsTextarea {
+  width: 85%;
+}
+
+.contacts {
+  margin-top: 0;
+}
+
+.contactsBlock {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 85%;
+  gap: 1rem;
+  .contactsElem {
+    border-radius: 40px;
+    min-height: 3rem;
+    padding: 1rem;
+    background-color: #fff;
+  }
+}
+@media (width<768px) {
+  .contactsBlock {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+.contactsElemTitle {
+  font-size: var(--subtitle-fontsize);
+}
+.contactsElemText {
+  font-size: var(--primaryText-fontsize);
+}
+
+.footerSection {
+  background-color: #000000;
+  color: #fff;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-size: var(--primaryText-fontsize);
+  height: clamp(7.188rem, 6.563rem + 3.13vw, 9.375rem);
+}
+.footerSection,
+.footer,
+.footerLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer {
+  padding: 1rem;
+  justify-content: space-between;
+  flex: 1;
+}
+.footerLinks {
 }

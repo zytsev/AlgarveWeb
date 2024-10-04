@@ -5,20 +5,26 @@ export default function RequestForm() {
     <form className="writeUsForm">
       <div className="writeUsinputsBlock">
         <input
-          className="writeUsInputName"
+          className="writeUsInput writeUsInputName"
           type="text"
           placeholder="Nome"
           required
         ></input>
         <input
-          className="writeUsInputEmail"
+          className="writeUsInput writeUsInputPhone"
+          type="number"
+          placeholder="Telefone"
+          required
+        ></input>
+        <input
+          className="writeUsInput writeUsInputEmail"
           type="email"
           placeholder="Email"
           required
         ></input>
       </div>
       <textarea
-        className="writeUsTextarea"
+        className="writeUsInput writeUsTextarea"
         placeholder="Comunicação"
         required
       ></textarea>

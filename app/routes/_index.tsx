@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import type { MetaFunction } from "@remix-run/node";
 import {
   navItems,
@@ -8,6 +9,8 @@ import {
 } from "../accets/data";
 import Drop from "../components/dropdown/drop";
 import RequestForm from "../components/requestForm/requestForm";
+import { addBlueOutline, goTo } from "../services/serviceJS";
+import { useEffect } from "react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,23 +20,29 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  useEffect(() => {
+    addBlueOutline();
+    goTo();
+  }, []);
   return (
     <div className="container">
       <header className="header">
         <div className="headerLeftBlock">
-          <img src="../../public/logo-removeBG.png" alt="logo"></img>
+          <img src="../../public/log-removeBG.png" alt="logo"></img>
           <h3>Loja de sites</h3>
         </div>
         <nav className="nav">
           <ul className="navul">
             {navItems.map((item, i) => (
               <li className="navli" key={i}>
-                <a href={item.id}>{item.link}</a>
+                <a className="goto" data-goto={item.goto} href={item.id}>
+                  {item.link}
+                </a>
               </li>
             ))}
           </ul>
         </nav>
-        <a href="#writeUs">
+        <a className="goto" data-goto=".writeUs" href="#">
           <button className="headerBtn" type="button">
             Encomendar site
           </button>
@@ -44,7 +53,7 @@ export default function Index() {
         <p className="titleText">
           Crie sua loja online, café ou escritório conosco!
         </p>
-        <a href="#writeUs">
+        <a className="goto" data-goto=".writeUs" href="#">
           <button className="titleBtn" type="button">
             Comece agora
           </button>
@@ -74,9 +83,11 @@ export default function Index() {
         <span className="transparantText">
           Crie seu site e comece a ganhar dinheiro hoje!
         </span>
-        <button className="transparantBtn" type="button">
-          Comece agora
-        </button>
+        <a className="goto" data-goto=".writeUs" href="#">
+          <button className="transparantBtn" type="button">
+            Comece agora
+          </button>
+        </a>
       </section>
       <section className="questions">
         <h2 className="questionsTitle">Perguntas frequentes</h2>
@@ -86,8 +97,9 @@ export default function Index() {
       </section>
       <section className="sectionRunline">
         <h2>
-          Design responsivo * Fácil de usar * Design exclusivo * Pedidos
-          instantâneos * Suporte ao cliente 24/7 * Otimização SEO
+          Site Cartão de visita * Loja online * Design responsivo * Fácil de
+          usar * Design exclusivo * Pedidos instantâneos * Suporte ao cliente
+          24/7 * Otimização SEO * Ajuda com hospedagem
         </h2>
       </section>
       <section className="sectionImage">

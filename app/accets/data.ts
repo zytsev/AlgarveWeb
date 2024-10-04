@@ -1,8 +1,9 @@
 export const navItems = [
-  { link: "Primeira", id: "#main" },
-  { link: "Serviços", id: "#service" },
-  { link: "Contato", id: "#contact" },
+  { link: "Primeira", id: "#main", goto: ".mainSection" },
+  { link: "Serviços", id: "#service", goto: ".sectionRunline" },
+  { link: "Contato", id: "#contact", goto: ".contacts" },
 ];
+
 export const resultsItems = [
   { id: "res1", title: "20+", text: "Projetos de sucesso" },
   { id: "res2", title: "30+", text: "Clientes felizes" },
