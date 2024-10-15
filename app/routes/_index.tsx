@@ -1,5 +1,6 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import type { MetaFunction } from "@remix-run/node";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import type { ActionFunctionArgs, MetaFunction } from "@remix-run/node";
 import {
   navItems,
   resultsItems,
@@ -9,8 +10,9 @@ import {
 } from "../accets/data";
 import Drop from "../components/dropdown/drop";
 import RequestForm from "../components/requestForm/requestForm";
-import { addBlueOutline, goTo } from "../services/serviceJS";
-import { useEffect } from "react";
+import { addListener, noScrollBody } from "../services/serviceJS";
+import { useEffect, useState } from "react";
+import Burger from "../components/burger/burger";
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,11 +21,35 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export async function action({ request }: ActionFunctionArgs) {
+  const formData = await request.formData();
+  const name = String(formData.get("name"));
+  const tel = String(formData.get("tel"));
+  if (name.length < 2 || tel.length < 9) {
+    return "errForm";
+  } else {
+    const email = formData.get("email");
+    const message = formData.get("message");
+    const text = `Name: ${name}%0APhone: ${tel}%0AE-mail: ${email}%0AMessage: ${message}`;
+    const apiKEY = import.meta.env.VITE_APP_TLG_API_KEY as string;
+    const url = `https://api.telegram.org/bot${apiKEY}/sendMessage?chat_id=190722937&text=${text}`;
+    const response = await fetch(url);
+    if (response.ok) {
+      return "ok";
+    } else {
+      return "errTlg";
+    }
+  }
+}
+
 export default function Index() {
+  const [burgerIsActive, setBurgerIsActive] = useState(false);
   useEffect(() => {
-    addBlueOutline();
-    goTo();
+    addListener();
   }, []);
+  useEffect(() => {
+    noScrollBody(burgerIsActive);
+  }, [burgerIsActive]);
   return (
     <div className="container">
       <header className="header">
@@ -42,18 +68,28 @@ export default function Index() {
             ))}
           </ul>
         </nav>
-        <a className="goto" data-goto=".writeUs" href="#">
+        <a className="goto btnHeader" data-goto=".writeUs" href="#writeUs">
           <button className="headerBtn" type="button">
             Encomendar site
           </button>
         </a>
+        <div
+          onClick={() => setBurgerIsActive(!burgerIsActive)}
+          className={burgerIsActive ? "burgerIcon burgerActive" : "burgerIcon"}
+        >
+          <span />
+        </div>
+        <Burger
+          burgerIsActive={burgerIsActive}
+          setBurgerIsActive={setBurgerIsActive}
+        />
       </header>
       <section className="mainSection" id="main">
         <h1 className="title">Desenvolvimento web</h1>
         <p className="titleText">
           Crie sua loja online, café ou escritório conosco!
         </p>
-        <a className="goto" data-goto=".writeUs" href="#">
+        <a className="goto" data-goto=".writeUs" href="#writeUs">
           <button className="titleBtn" type="button">
             Comece agora
           </button>
@@ -83,7 +119,7 @@ export default function Index() {
         <span className="transparantText">
           Crie seu site e comece a ganhar dinheiro hoje!
         </span>
-        <a className="goto" data-goto=".writeUs" href="#">
+        <a className="goto" data-goto=".writeUs" href="#writeUs">
           <button className="transparantBtn" type="button">
             Comece agora
           </button>
@@ -126,8 +162,8 @@ export default function Index() {
             © 2024 Todos os direitos reservados.
           </div>
           <div className="footerLinks">
-            <span>Política</span>
-            <span>Sobre nós</span>
+            <span></span>
+            <span></span>
           </div>
         </footer>
       </section>
