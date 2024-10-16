@@ -54,7 +54,7 @@ export default function Index() {
     <div className="container">
       <header className="header">
         <div className="headerLeftBlock">
-          <img src="../../public/log-removeBG.png" alt="logo"></img>
+          <img src="/log-removeBG.png" alt="logo"></img>
           <h3>Loja de sites</h3>
         </div>
         <nav className="nav">
@@ -139,7 +139,7 @@ export default function Index() {
         </h2>
       </section>
       <section className="sectionImage">
-        <img src="../../public/photo.jpeg" alt="computer"></img>
+        <img src="/photo.jpeg" alt="computer"></img>
       </section>
       <section className="writeUs" id="writeUs">
         <h2 className="writeUsTitle">Entre em contato conosco</h2>
