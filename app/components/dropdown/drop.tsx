@@ -21,11 +21,7 @@ function Drop({ question, answer }: propsDrop) {
         <span className={styles.question}>{question}</span>
         <img
           className={styles.imgShevron}
-          src={
-            active
-              ? "../../../public/chevron-up-outline.svg"
-              : "../../../public/chevron-down-outline.svg"
-          }
+          src={active ? "/chevron-up-outline.svg" : "/chevron-down-outline.svg"}
           alt="close"
         />
       </button>
