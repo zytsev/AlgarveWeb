@@ -32,7 +32,7 @@ function ModalMsg({ message, novisible, callback }: propModal) {
     <div
       ref={ref}
       className={`${styles.container} ${bordercolor} ${
-        novisible && "modalNoVisible"
+        novisible ? "modalNoVisible" : ""
       }`}
     >
       <p className={styles.message}>{text}</p>
