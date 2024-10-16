@@ -10,34 +10,34 @@ export const resultsItems = [
   { id: "res3", title: "24/7", text: "Suporte ao cliente" },
 ];
 export const teamItems = [
-  { name: "Evgueny", job: "Programador", imgSrc: "../../public/evgeny.jpg" },
+  { name: "Evgueny", job: "Programador", imgSrc: "/evgeny.jpg" },
   {
     name: "Tatiana",
     job: "Administrador",
-    imgSrc: "../../public/tatiana.jpg",
+    imgSrc: "/tatiana.jpg",
   },
-  { name: "Alex", job: "Designer ", imgSrc: "../../public/alex.jpg" },
+  { name: "Alex", job: "Designer ", imgSrc: "/alex.jpg" },
 ];
 export const rewiewsItems = [
   {
     name: "Marya",
     text: "Com isso, o restaurante ficou mais popular!",
-    imgSrc: "../../public/logo.jpeg",
+    imgSrc: "/logo.jpeg",
   },
   {
     name: "Ana",
     text: "O aplicativo funciona sem falhas, simplesmente super!",
-    imgSrc: "../../public/logo.jpeg",
+    imgSrc: "/logo.jpeg",
   },
   {
     name: "Michael",
     text: "O site foi feito com rapidez e qualidade!",
-    imgSrc: "../../public/logo.jpeg",
+    imgSrc: "/logo.jpeg",
   },
   {
     name: "Pedro",
     text: "Equipe de profissionais, recomendo a todos!",
-    imgSrc: "../../public/logo.jpeg",
+    imgSrc: "/logo.jpeg",
   },
 ];
 
