@@ -35,7 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="Address" content="Algarve, Portugal"></meta>
         <meta name="Author" content="Evgeny Zaytsev"></meta>
         <title>
-          Desenvolvimento web. Abra sua loja online e atraia novos clientes.
+          Desenvolvimento Web. Criação de Sites. Criação Lojas Online
         </title>
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
