@@ -46,6 +46,20 @@ export default function RequestForm() {
           name="email"
           placeholder="Email"
         ></input>
+        {/* Honeypot field */}
+        <div style={{ display: "none" }} aria-hidden>
+          <label htmlFor="from_email">
+            Please do not fill this field
+            <input
+              type="text"
+              id="from_email"
+              name="from_email"
+              autoComplete="off"
+              tabIndex={-1}
+            />
+          </label>
+        </div>
+        {/* Rest of the form */}
       </div>
       <textarea
         className="writeUsInput writeUsTextarea"

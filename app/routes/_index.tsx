@@ -20,9 +20,18 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Welcome to Algarve Web!" },
   ];
 };
+// Function to check honeypot
+const checkHoneypot = (formData: FormData) => {
+  const fromEmail = formData.get("from_email");
 
+  // Checking honeypot field
+  if (fromEmail) {
+    throw new Response("Spam detected. Try again.", { status: 400 });
+  }
+};
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
+  checkHoneypot(formData); //check spam
   const name = String(formData.get("name"));
   const tel = String(formData.get("tel"));
   if (name.length < 2 || tel.length < 9) {
